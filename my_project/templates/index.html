@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    
+    h1 {
+        display: flex;
+        color: blue;
+        justify-content: center;
+        background-color: darkseagreen;
+    }
+</style>
+<body>
+    <h1>ГЛАВНА СТОРІНКА!</h1>
+    <p style="border: 2px solid orange; padding: 5px;">Список: {{ my_list }}</p>
+    <ul>
+        {% for item in my_list %}
+            <li>{{item}}</li>
+        {% endfor %}    
+    </ul>
+</body>
+</html>
