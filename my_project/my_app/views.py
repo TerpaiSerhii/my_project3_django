@@ -5,13 +5,16 @@ from django.http import HttpResponse
 # Create your views here.
 
 
-def home(request):
-    my_list = ['первый элемент', 'второй элемент', 'третий элемент', 'ctverty element']  # Список
+def hello(request):
+    names = ['Иван', 'Мария', 'Алексей']
+    is_logged_in = True
+    user_age = 25
 
     return render(request, 'index.html', {
-        'my_list': my_list,
+        'names': names,
+        'is_logged_in': is_logged_in,
+        'user_age': user_age,
     })
-    return render(request, "index.html", context)
 
 def hello(request, name):
     print(name)

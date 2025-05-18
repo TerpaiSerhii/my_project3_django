@@ -6,21 +6,43 @@
     <title>Document</title>
 </head>
 <style>
-    
     h1 {
         display: flex;
         color: blue;
         justify-content: center;
         background-color: darkseagreen;
     }
+    ul {
+        list-style: none;
+        padding: 15px;
+    }
+    li {
+        padding: 10px;
+        border: 2px solid rgb(228, 8, 26);
+    }
 </style>
 <body>
-    <h1>ГЛАВНА СТОРІНКА!</h1>
-    <p style="border: 2px solid orange; padding: 5px;">Список: {{ my_list }}</p>
+    <h1>Добро пожаловать!</h1>
+
+    {% if is_logged_in %}
+      <p style="color: green;">Вы вошли в систему.</p>
+    {% else %}
+      <p style="color: red;">Пожалуйста, авторизуйтесь.</p>
+    {% endif %}
+
+    {% if user_age < 18 %}
+      <p>Вам нет 18 лет.</p>
+    {% elif user_age < 60 %}
+      <p>Вы взрослый пользователь.</p>
+    {% else %}
+      <p>Вы пожилой пользователь.</p>
+    {% endif %}
+
+    <h2>Список пользователей:</h2>
     <ul>
-        {% for item in my_list %}
-            <li>{{item}}</li>
-        {% endfor %}    
+      {% for name in names %}
+        <li>{{ name }}</li>
+      {% endfor %}
     </ul>
 </body>
 </html>
